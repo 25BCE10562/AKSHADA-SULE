@@ -76,8 +76,59 @@ Total spending
 
 Remaining budget
 
-Category summaries (Note: Current code expects categories, but category input is commented out)
+# Flow chart of the program
+┌────────────────────────┐
+                   │      Start Program     │
+                   └────────────┬───────────┘
+                                │
+                                ▼
+                   ┌────────────────────────┐
+                   │ Ask user for monthly   │
+                   │        budget          │
+                   └────────────┬───────────┘
+                                │
+                                ▼
+                   ┌────────────────────────┐
+                   │   Display Main Menu:   │
+                   │ 1. Add Expense         │
+                   │ 2. View Summary        │
+                   │ 3. Exit                │
+                   └────────────┬───────────┘
+                                │
+                      ┌─────────┼─────────┐
+                      │         │         │
+                      ▼         ▼         ▼
 
-Verify the file expenses.txt is created and contains logged data.
+         ┌────────────────┐   ┌──────────────────┐   ┌────────────────────┐
+         │ 1. Add Expense │   │ 2. View Summary  │   │ 3. Exit Program    │
+         └───────┬────────┘   └──────────┬──────┘   └──────────┬─────────┘
+                 │                       │                     │
+                 ▼                       ▼                     ▼
 
-Restart the program and check that expenses are still loaded.
+    ┌──────────────────────┐   ┌───────────────────────┐   ┌────────────────────────┐
+    │ Ask amount spent     │   │ Read all expenses      │   │ Display exit message   │
+    │ Ask note             │   │ from expenses.txt       │   └────────────────────────┘
+    │ Get current time     │   └──────────┬─────────────┘
+    └──────────┬───────────┘              │
+               │                           ▼
+               ▼               ┌──────────────────────────┐
+    ┌──────────────────────┐   │ Calculate total expenses │
+    │ Write expense data    │   │ Calculate remaining     │
+    │ into expenses.txt     │   │ budget                  │
+    └──────────┬───────────┘   └──────────┬──────────────┘
+               │                           │
+               ▼                           ▼
+   ┌────────────────────────┐   ┌──────────────────────────────┐
+   │ Print success message  │   │ Show category-wise spending   │
+   └──────────┬────────────┘   │ Generate bar chart             │
+               │                └──────────┬─────────────────────┘
+               │                           │
+               ▼                           ▼
+       ┌────────────────┐      ┌──────────────────────────────┐
+       │ Return to Menu │◄──── │ Show suggestions              │
+       └────────────────┘      └──────────┬─────────────────────┘
+                                           │
+                                           ▼
+                                 ┌───────────────────┐
+                                 │ Return to Menu    │
+                                 └───────────────────┘
